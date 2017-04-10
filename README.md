@@ -20,7 +20,7 @@ $result = $face->score->get('https://ws2.sinaimg.cn/large/685b97a1gy1fehkmbi6hvj
 
 /**
 
-$result = [
+[
     'score' => 6.8,
     'text' => '哥们颜值才6.8分，一下让整体颜值从7.3跌到7.1ORZ',
     'url' => 'http://mediaplatform.trafficmanager.cn/image/fetchimage?key='
