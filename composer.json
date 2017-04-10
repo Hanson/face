@@ -1,0 +1,22 @@
+{
+    "name": "hanson/face-score",
+    "description": "A package to check human appearance score",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "HanSon",
+            "email": "h@hanc.cc"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hanson\\FaceScore\\": "src/"
+        }
+    }
+}
