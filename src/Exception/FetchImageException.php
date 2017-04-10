@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hanson\Exception;
+namespace Hanson\Face\Exception;
 
 
 class FetchImageException extends \Exception
