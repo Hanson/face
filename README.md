@@ -14,7 +14,7 @@ composer require hanson/face
 
 $face = new \Hanson\Face\Foundation\Face();
 
-$face = $face->score->get('https://ws2.sinaimg.cn/large/685b97a1gy1fehkmbi6hvj20u00u07ab.jpg');
+$result = $face->score->get('https://ws2.sinaimg.cn/large/685b97a1gy1fehkmbi6hvj20u00u07ab.jpg');
 
 /**
 
@@ -25,6 +25,32 @@ $result = [
 ];
 
 **/
+```
+
+## Document
+
+```php
+
+$face = new \Hanson\Face\Foundation\Face();
+
+// 获取颜值实例
+$score = $face->score;
+
+// 获取受欢迎实例
+$popular = $face->popular;
+
+// 获取关系实例
+$relation = $face->relation;
+
+// 获取请客实例
+$bill = $face->bill;
+
+// 获取时尚穿衣实例
+$clothing = $face->clothing;
+
+// 所有实例均有一个方法 get
+$result = $bill->get($url);
+
 ```
 
 ## Achievement
