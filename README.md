@@ -2,6 +2,8 @@
 
 face 是基于微软小冰接口的颜值检测工具
 
+PS:其中某些接口还有一些参数，能够定位某些tag的位置，但因过于复杂这里没有实现
+
 ## Install
 
 ```
@@ -11,7 +13,7 @@ composer require hanson/face
 ## Usage
 
 ```php
-
+<?php
 $face = new \Hanson\Face\Foundation\Face();
 
 $result = $face->score->get('https://ws2.sinaimg.cn/large/685b97a1gy1fehkmbi6hvj20u00u07ab.jpg');
@@ -30,7 +32,7 @@ $result = [
 ## Document
 
 ```php
-
+<?php
 $face = new \Hanson\Face\Foundation\Face();
 
 // 获取颜值实例
