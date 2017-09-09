@@ -25,11 +25,14 @@ class Popular extends BaseFace
 
         $sort = [];
 
-        if (isset($response['content']['metadata']) && ($count = $response['content']['metadata']['FBR_Cnt']) > 0) {
-            $data = $response['content']['metadata'];
-            for ($i = 0; $i < $count; $i++){
-                $sort[] = ['crowd' => $data['FBR_Key'.$i], 'score' => $data['FBR_Score'.$i]];
+        try {
+            if (isset($response['content']['metadata']) && ($count = $response['content']['metadata']['FBR_Cnt']) > 0) {
+                $data = $response['content']['metadata'];
+                for ($i = 0; $i < $count; $i++){
+                    $sort[] = ['crowd' => $data['FBR_Key'.$i], 'score' => $data['FBR_Score'.$i]];
+                }
             }
+        } catch (\Exception $exception) {
         }
 
         return [
