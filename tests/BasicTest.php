@@ -56,4 +56,11 @@ class BasicTest extends TestCase
 
         $this->assertContains('http://', $result['url']);
     }
+
+    public function testPoem()
+    {
+        $result = $this->face->poem->get('https://i.loli.net/2017/09/09/59b3e36a718bb.jpg');
+
+        $this->assertContains('http://', $result['url']);
+    }
 }

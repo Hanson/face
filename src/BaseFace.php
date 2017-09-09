@@ -15,6 +15,7 @@ class BaseFace
     const POPULAR_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=beauty&tid=';
     const RELATION_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=beauty&tid=';
     const CLOTHING_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=cosmoclothing&tid=';
+    const POEM_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=poem&tid=';
 
     /**
      * upload image and get the resource url

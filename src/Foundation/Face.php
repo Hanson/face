@@ -6,6 +6,7 @@ namespace Hanson\Face\Foundation;
 
 use Hanson\Face\Foundation\ServiceProviders\BillServiceProvider;
 use Hanson\Face\Foundation\ServiceProviders\ClothingServiceProvider;
+use Hanson\Face\Foundation\ServiceProviders\PoemServiceProvider;
 use Hanson\Face\Foundation\ServiceProviders\PopularServiceProvider;
 use Hanson\Face\Foundation\ServiceProviders\RelationServiceProvider;
 use Hanson\Face\Foundation\ServiceProviders\ScoreServiceProvider;
@@ -20,6 +21,7 @@ use Pimple\Container;
  * @property \Hanson\Face\Bill $bill
  * @property \Hanson\Face\Relation $relation
  * @property \Hanson\Face\Clothing $clothing
+ * @property \Hanson\Face\Poem $poem
  */
 class Face extends Container
 {
@@ -35,6 +37,7 @@ class Face extends Container
         PopularServiceProvider::class,
         RelationServiceProvider::class,
         ClothingServiceProvider::class,
+        PoemServiceProvider::class,
     ];
 
     /**
