@@ -21,13 +21,7 @@ class Score extends BaseFace
     {
         $this->initCookie();
 
-        $result = $this->upload($url);
-
-        $response = Api::request(self::SCORE_URL, [
-            'MsgId' => strval($this->generateTime()),
-            'CreateTime' => strval(time()),
-            'Content[imageUrl]' => $result
-        ]);
+        $response = $this->request($url, self::SCORE_URL);
 
         return [
             'score' => $this->regexScore($response['content']['text']),

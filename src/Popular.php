@@ -21,13 +21,7 @@ class Popular extends BaseFace
     {
         $this->initCookie();
 
-        $result = $this->upload($url);
-
-        $response = Api::request(self::POPULAR_URL, [
-            'msgId' => $this->generateTime(),
-            'timestamp' => time(),
-            'content[imageUrl]' => $result
-        ]);
+        $response = $this->request($url, self::POPULAR_URL);
 
         $sort = [];
 

@@ -25,7 +25,7 @@ class BaseFace
      */
     protected function upload($url)
     {
-        $image = base64_encode(file_get_contents($url));
+        $image = base64_encode(file_get_contents($url, false, stream_context_create(['ssl' => ['verify_peer' => false, 'verify_peer_name' => false]])));
 
         $result = Api::request(self::UPLOAD_URL, $image);
 
@@ -39,6 +39,17 @@ class BaseFace
     public function initCookie()
     {
         Api::request('http://kan.msxiaobing.com/V3/Portal?task=yanzhi&ftid=', [], 'get');
+    }
+
+    protected function request($url, $api)
+    {
+        $result = $this->upload($url);
+
+        return Api::request($api, [
+            'msgId' => $this->generateTime(),
+            'timestamp' => time(),
+            'content[imageUrl]' => $result
+        ]);
     }
 
     /**

@@ -21,13 +21,7 @@ class Relation extends BaseFace
     {
         $this->initCookie();
 
-        $result = $this->upload($url);
-
-        $response = Api::request(self::RELATION_URL, [
-            'msgId' => $this->generateTime(),
-            'timestamp' => time(),
-            'content[imageUrl]' => $result
-        ]);
+        $response = $this->request($url, self::RELATION_URL);
 
         return [
             'text'  => $response['content']['text'],

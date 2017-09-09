@@ -21,13 +21,7 @@ class Bill extends BaseFace
     {
         $this->initCookie();
 
-        $result = $this->upload($url);
-
-        $response = Api::request(self::BILL_URL, [
-            'msgId' => $this->generateTime(),
-            'timestamp' => time(),
-            'content[imageUrl]' => $result
-        ]);
+        $response = $this->request($url, self::BILL_URL);
 
         return [
             'text'  => $response['content']['text'],

@@ -21,17 +21,13 @@ class Clothing extends BaseFace
     {
         $this->initCookie();
 
-        $result = $this->upload($url);
+        $response = $this->request($url, self::CLOTHING_URL);
 
-        $response = Api::request(self::CLOTHING_URL, [
-            'msgId' => $this->generateTime(),
-            'timestamp' => time(),
-            'content[imageUrl]' => $result
-        ]);
+        $key = explode('key=', $response['content']['imageUrl']);
 
         return [
             'text'  => $response['content']['text'],
-            'url'   => $response['content']['imageUrl'],
+            'url'   => 'https://kan.msxiaobing.com/ImageGame/Portal?task=cosmoclothing&aid='.$response['content']['metadata']['aid'].'&key='.$key[1],
             'data'  => $response['content']['metadata']
         ];
     }
