@@ -29,7 +29,7 @@ class Api
                 'Content-Type' => 'application/x-www-form-urlencoded; charset=UTF-8',
                 'Referer' => 'http://kan.msxiaobing.com/V3/Portal?task=yanzhi&ftid=',
             ],
-            'timeout' => 7,
+            'timeout' => 15,
         ];
 
         $options = is_array($data) ? array_merge($options, ['form_params' => $data]) : array_merge($options, ['body' => $data]);
