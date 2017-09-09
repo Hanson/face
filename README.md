@@ -36,22 +36,25 @@ $result = $face->score->get('https://ws2.sinaimg.cn/large/685b97a1gy1fehkmbi6hvj
 $face = new \Hanson\Face\Foundation\Face();
 
 // 获取颜值实例
-$score = $face->score;
+$instance = $face->score;
 
 // 获取受欢迎实例
-$popular = $face->popular;
+$instance = $face->popular;
 
 // 获取关系实例
-$relation = $face->relation;
+$instance = $face->relation;
 
 // 获取请客实例
-$bill = $face->bill;
+$instance = $face->bill;
 
 // 获取时尚穿衣实例
-$clothing = $face->clothing;
+$instance = $face->clothing;
+
+// 获取赋诗实例
+$instance = $face->poem;
 
 // 所有实例均有一个方法 get
-$result = $bill->get($url);
+$result = $instance->get($url);
 
 ```
 
