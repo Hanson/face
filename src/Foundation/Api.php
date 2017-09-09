@@ -9,41 +9,45 @@ use GuzzleHttp\Client;
 class Api
 {
 
+    protected static $client = null;
+
     /**
      * send a curl request
      *
      * @param $api
      * @param $data
+     * @param string $method
      * @return mixed
      */
-    public static function request($api, $data)
+    public static function request($api, $data, $method = 'post')
     {
-        $client = new Client();
+        $client = self::getClient();
 
         $options = [
             'headers' => [
-                'Host' => 'kan.msxiaobing.com',
-                'Connection' => 'keep-alive',
-                'Accept' => '*/*',
-                'Origin' => 'http://kan.msxiaobing.com',
-                'X-Requested-With' => 'XMLHttpRequest',
                 'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36',
                 'Content-Type' => 'application/x-www-form-urlencoded; charset=UTF-8',
-                'Referer' => 'http://kan.msxiaobing.com/V3/Portal',
-                'Accept-Encoding' => 'gzip, deflate',
-                'Accept-Language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
-                'Expect' => ''
+                'Referer' => 'http://kan.msxiaobing.com/V3/Portal?task=yanzhi&ftid=',
             ],
             'timeout' => 7,
         ];
 
         $options = is_array($data) ? array_merge($options, ['form_params' => $data]) : array_merge($options, ['body' => $data]);
 
-        $request = $client->post($api, $options);
+        $request = $method === 'post' ? $client->post($api, $options) : $client->get($api);
 
         $response = $request->getBody()->getContents();
 
         return json_decode($response, true);
+    }
+
+    protected static function getClient()
+    {
+        if (self::$client) {
+            return self::$client;
+        }
+
+        return self::$client = new Client(['cookies' => true]);
     }
 
 }

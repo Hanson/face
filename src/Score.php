@@ -19,12 +19,14 @@ class Score extends BaseFace
      */
     public function get($url)
     {
+        $this->initCookie();
+
         $result = $this->upload($url);
 
         $response = Api::request(self::SCORE_URL, [
-            'msgId' => $this->generateTime(),
-            'timestamp' => time(),
-            'content[imageUrl]' => $result
+            'MsgId' => strval($this->generateTime()),
+            'CreateTime' => strval(time()),
+            'Content[imageUrl]' => $result
         ]);
 
         return [

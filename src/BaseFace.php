@@ -10,11 +10,11 @@ use Hanson\Face\Foundation\Api;
 class BaseFace
 {
     const UPLOAD_URL = 'http://kan.msxiaobing.com/Api/Image/UploadBase64';
-    const SCORE_URL = 'http://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=yanzhi&tid=52a90c91aaeb4af698bec8ae2106cb36';
-    const BILL_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=qingke&tid=bc70072cf17e41ac8501a01399ff1c9c';
-    const POPULAR_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=beauty&tid=662e823fd7494b63bc707ccd36e4b30e';
-    const RELATION_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=beauty&tid=662e823fd7494b63bc707ccd36e4b30e';
-    const CLOTHING_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=cosmoclothing&tid=0dc5049c96c04dbe924134d5e3c39ac9';
+    const SCORE_URL = 'http://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=yanzhi&tid=';
+    const BILL_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=qingke&tid=';
+    const POPULAR_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=beauty&tid=';
+    const RELATION_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=beauty&tid=';
+    const CLOTHING_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=cosmoclothing&tid=';
 
     /**
      * upload image and get the resource url
@@ -36,6 +36,11 @@ class BaseFace
         }
     }
 
+    public function initCookie()
+    {
+        Api::request('http://kan.msxiaobing.com/V3/Portal?task=yanzhi&ftid=', [], 'get');
+    }
+
     /**
      * generate a time for api
      *
@@ -43,8 +48,6 @@ class BaseFace
      */
     protected function generateTime()
     {
-        list($s1, $s2) = explode(' ', microtime());
-
-        return (float)sprintf('%.0f', (floatval($s1) + floatval($s2)) * 1000);
+        return time() * 1000;
     }
 }

@@ -19,6 +19,8 @@ class Relation extends BaseFace
      */
     public function get($url)
     {
+        $this->initCookie();
+
         $result = $this->upload($url);
 
         $response = Api::request(self::RELATION_URL, [

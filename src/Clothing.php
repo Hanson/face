@@ -19,6 +19,8 @@ class Clothing extends BaseFace
      */
     public function get($url)
     {
+        $this->initCookie();
+
         $result = $this->upload($url);
 
         $response = Api::request(self::CLOTHING_URL, [
