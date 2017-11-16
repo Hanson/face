@@ -13,7 +13,7 @@ class BaseFace
     const SCORE_URL = 'http://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=yanzhi&tid=';
     const BILL_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=qingke&tid=';
     const POPULAR_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=beauty&tid=';
-    const RELATION_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=beauty&tid=';
+    const RELATION_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=guanxi&tid=';
     const CLOTHING_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=cosmoclothing&tid=';
     const POEM_URL = 'https://kan.msxiaobing.com/Api/ImageAnalyze/Process?service=poem&tid=';
 
